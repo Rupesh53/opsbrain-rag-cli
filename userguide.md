@@ -1,6 +1,6 @@
-# 📘 Deva User Guide
+# 📘 Opsbrain User Guide
 
-This guide helps you install and use Deva locally.
+This guide helps you install and use cli locally.
 
 ---
 
@@ -17,8 +17,8 @@ This guide helps you install and use Deva locally.
 ### Clone Repository
 
 ```
-git clone https://github.com/yourusername/deva-cli.git
-cd deva-cli
+git clone https://github.com/yourusername/opsbrain-rag-cli.git
+cd opsbrain-rag-cli
 ```
 ## Install in Editable Mode
 
@@ -36,12 +36,8 @@ Pull a model:
 ollama pull dolphin-mistral
 ```
 
-Create .env:
 ```
-DEVA_LLM_PROVIDER=ollama
-DEVA_LLM_MODEL=dolphin-mistral
-```
-### Option 2: Gemini (Cloud)
+### Option 2: Gemini (Cloud)  if you use :)
 
 Get an API key from Google AI Studio
 
@@ -52,17 +48,22 @@ pip install langchain-google-genai
 
 Configure .env:
 ```
-DEVA_LLM_PROVIDER=gemini
-DEVA_LLM_MODEL=gemini-1.5-pro
+LLM_PROVIDER=gemini
+LLM_MODEL=gemini-1.5-pro
 GEMINI_API_KEY=your_key_here
 ```
 ## 📂 Ingest Documents
 ```
-deva ingest ./data
+python -m opsbrain.cli ingest  or 
+python -c "from opsbrain.cli import ingest; ingest('./data')"
 ```
 Reset Vector Database
 ```
-deva ingest ./data --reset
+opsbrain ingest ./data --reset  or  if typer doesnt work
+python -m opsbrain.cli ingest --reset 
+python -c "from opsbrain.cli import ingest; ingest('./data')"
+
+
 ```
 
 ## Supported formats:
@@ -75,7 +76,8 @@ deva ingest ./data --reset
 
 ## 💬 Chat with Your Data
 ```
-deva chat
+python -m opsbrain.cli chat  or 
+python -c "from opsbrain.cli import chat; chat()"
 ```
 
 Exit with:
@@ -83,12 +85,7 @@ Exit with:
 exit
 quit
 ```
-## ⚙️CLI Commands
-Command	Description
-```
-deva ingest PATH	Index documents
-deva ingest PATH --reset	Rebuild database
-deva chat	Interactive chat
+
 ```
 ## 🧠 Best Practices
 
