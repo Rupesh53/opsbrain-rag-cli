@@ -11,6 +11,7 @@ opsbrain.egg-info/requires.txt
 opsbrain.egg-info/top_level.txt
 opsbrain/app/__init__.py
 opsbrain/app/main.py
+opsbrain/app/mlmodel.py
 opsbrain/app/prompts.py
 opsbrain/app/rag_chain.py
 opsbrain/app/retriever.py

@@ -7,11 +7,12 @@ from opsbrain.config import (
     LLM_PROVIDER,
     LLM_MODEL
 )
+from opsbrain.app.mlmodel import predict_quality
 from opsbrain.providers.llm import get_llm
 from opsbrain.ingestion.loaders import load_documents
 from opsbrain.ingestion.splitter import split_documents
 from opsbrain.ingestion.indexer import get_or_create_vectorstore, add_documents
-
+from opsbrain.app.retriever import retrieve_chunk_text
 from opsbrain.app.rag_chain import create_rag_chain
 
 
@@ -44,6 +45,15 @@ def main():
             continue
 
         start = time.time()
+        chunks = retrieve_chunk_text(query)
+        predicted = predict_quality(query, len(chunks))
+
+    
+        if predicted < 5:
+          print(f"⚠️ Query may give poor results. Predicted quality: {predicted}")  
+          return  
+
+
         result = chain.invoke({"question": query})
         latency = time.time() - start
 

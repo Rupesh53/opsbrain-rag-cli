@@ -11,3 +11,16 @@ def get_retriever(vectorstore):
         search_type="mmr",
         search_kwargs={"k": 5, "lambda_mult": 0.7}
     )
+
+def retrieve_chunk_text(text, chunk_size=200, overlap=50):
+    chunks = []
+    
+    start = 0
+    while start < len(text):
+        end = start + chunk_size
+        chunk = text[start:end]
+        chunks.append(chunk)
+        
+        start += chunk_size - overlap  # overlap for context
+    
+    return chunks

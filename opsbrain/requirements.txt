@@ -9,3 +9,5 @@ sentence-transformers
 ollama
 langchain-huggingface
 langchain-google-genai
+scikit-learn 
+numpy
