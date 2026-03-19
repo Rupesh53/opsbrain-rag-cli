@@ -98,6 +98,7 @@ Final Response
 * Integrate **MLflow** for experiment tracking
 * Deploy on Kubernetes (AKS/EKS)
 * Add AI Ops use case (e.g., Kubernetes log analysis)
+* This is classic RAG but to convert to agentic AI we need to embeed this using langchain tools 
 
 ---
 
