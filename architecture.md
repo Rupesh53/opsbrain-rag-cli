@@ -1,7 +1,7 @@
 
-# 🏗️ Deva Architecture
+# 🏗️ AI Architecture
 
-This document explains Deva’s internal architecture and design philosophy.
+This document explains how AI’s internal architecture works  with design philosophy.
 
 ---
 
@@ -32,7 +32,7 @@ User
 
 ## 📁 Project Structure
 ```
-deva/
+opsbrain-rag-cli/
 ├── cli.py # CLI entry point
 ├── config.py # Environment & defaults
 ├── providers/ # Pluggable backends
